@@ -26,14 +26,13 @@
     computed: {
       // sort data by name
       sortedData() {
-        return this.data.sort((a, b)=>{
-          if (a.name < b.name) {
-            return -1;
-          } else if (a.name > b.name) {
-            return 1;
-          }
+        const data = this.data;
+        data.sort((a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
           return 0;
         });
+        return data;
       },
       // paginate data
       paginatedData() {
@@ -52,7 +51,8 @@
     },
     methods: {
       changePage(page) {
-        this.options.pagination.offset = (page) * this.options.pagination.limit;
+        const options = this.options;
+        options.pagination.offset = (page) * options.pagination.limit;
       },
     },
   };
