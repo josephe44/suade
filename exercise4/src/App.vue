@@ -18,12 +18,36 @@
   <h4>Solution</h4>
   <div class="solution">
     <!-- TODO: implement template here -->
+    <List :people="people" :sorting=" sortByAge" :filtering="filterByAge(25, 35)" v-slot="slotProps">
+      <span>{{slotProps.person.age}} {{slotProps.person.name}}</span>
+    </List>
   </div>
 
 </template>
 
 <script>
   // TODO: implement logic here
+  import List from './components/List.vue';
+  import helpers from './helpers/helpers';
+  import {mapState} from 'vuex';
+
+  export default {
+    name: 'App',
+    components: {
+      List,
+    },
+    computed: {
+      ...mapState({
+        people: (state) => state.people,
+      }),
+    },
+    methods: {
+      ...helpers,
+    },
+    created() {
+      this.$store.dispatch('getPeople');
+    },
+  };
 </script>
 
 <style lang="scss">
