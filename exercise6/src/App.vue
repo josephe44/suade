@@ -100,6 +100,11 @@
         },
       },
     },
+    searchString: {
+      handler() {
+        this.pagination.offset = 0;
+      },
+    },
   };
 
 </script>
