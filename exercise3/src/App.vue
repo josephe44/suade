@@ -116,5 +116,78 @@
   }
 
   // TODO: Add your CSS Styling here
+  .solution {
+    display: grid;
+    place-items: center;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--item-padding);
+    border-radius: var(--border-radius);
+    font-family: var(--font);
+    color: white;
+      &:nth-child(3n + 1) {
+        background: var(--background-1);
+      }
+
+      &:nth-child(3n + 2) {
+        background: var(--background-2);
+      }
+
+      &:nth-child(3n + 3) {
+        background: var(--background-3);
+      }
+      .name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: calc(100% - 20px);
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+    .age{
+      margin-top: 10px;
+    }
+    .eye-color {
+      display: flex;
+      align-items: center;
+      .brown {
+        filter: hue-rotate(var(--eye-brown));
+      }
+      .green {
+        filter: hue-rotate(var(--eye-green));
+      }
+      .blue {
+        filter: hue-rotate(var(--eye-blue));
+      }
+      .eye-icon {
+        width: 40px;
+        height: 40px;
+        margin-left: 5px;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      width: calc(100% / var(--items-by-row-when-screen-is-less-than-600px) - 48px);
+    }
+    @media screen and (min-width: 600px) {
+      width: calc(100% / var(--items-by-row-when-screen-is-more-than-600px) - 54px);
+    }
+    @media screen and (min-width: 1024px) {
+      width: calc(100% / var(--items-by-row-when-screen-is-more-than-1024px) - 52px);
+    }
+  }
 
 </style>
