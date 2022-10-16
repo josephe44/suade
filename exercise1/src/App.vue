@@ -14,7 +14,7 @@
   <div class="solution">
 
     <div class="person-wrapper">
-      <PersonCard v-for="person in people" :person="person" class="person-card" :personClick="alertBox"/>
+      <PersonCard v-for="person in people" :key="person.id" :person="person" @personClick="alertBox"/>
     </div>
     <div class="summary">{{people.length}} persons cards displayed</div>
 
@@ -46,11 +46,11 @@
 
 <style lang="scss">
 
-  .person-card {
+  .person-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 5px;
     background: #e4e4e4;
-    min-width: 100px;
-    float: left;
-    width: 300px;
     margin: 10px;
   }
 
